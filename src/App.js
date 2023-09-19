@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import styled from 'styled-components';
 import Sidebar from './components/Sidebar';
+import Chat from './components/Chat';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
       <AppBody>
         <Sidebar/>
         <Routes>
-          <Route exact path='/' exact>
+          <Route exact path='/' element={<Chat />}>
+            
           </Route>
         </Routes>
         </AppBody>

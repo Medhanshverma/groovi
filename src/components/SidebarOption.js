@@ -1,9 +1,34 @@
 import React from 'react'
 import styled from 'styled-components';
+import { db } from '../firebase';
+import { useDispatch } from 'react-redux';
+import { enterRoom } from '../features/counterSlice';
 
-function SidebarOption({Icon, title}) {
+function SidebarOption({Icon, title, addChannelOption, id}) {
+
+  const dispatch = useDispatch();
+  
+  const addChannel = () => {
+    const channelName = prompt('Please enter the channel name');
+    if(channelName) {
+      db.collection('rooms').add({
+        name: channelName,
+      });
+    }
+  };
+ 
+  const selectChannel = () => {
+    if(id) {
+      dispatch(enterRoom({
+        value: id
+      }))
+    }
+  };
+
   return (
-    <SidebarOptionContainer>
+    <SidebarOptionContainer
+      onClick={addChannelOption ? addChannel : selectChannel}
+    >
         
       {Icon && <Icon fontSize='small' style={{ padding: 10 }} />}
       {Icon ? (
@@ -27,5 +52,20 @@ const SidebarOptionContainer = styled.div`
     padding-left: 2px;
     cursor: pointer;
 
+    > h3 {
+        font-weight: 500;
+    }
+    > h3 > span {
+        padding: 15px;
+    }
+    
 `;
-const SidebarOptionChannel = styled.div``;
+const SidebarOptionChannel = styled.h3`
+    padding: 10px 0;
+    font-weight: 500;
+    > span {
+        padding: 15px;
+    }
+    
+
+`;
