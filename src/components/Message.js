@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
 
 function Message({message, timestamp, user, userImage}) {
   return (

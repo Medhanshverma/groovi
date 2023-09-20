@@ -20,7 +20,7 @@ import 'firebase/compat/auth';
 
 
 function Sidebar() {
-    const [channels, loading, error] = useCollection(db.collection('rooms'));
+    const [channels] = useCollection(db.collection('rooms'));
 
   return (
     <SidebarContainer>
