@@ -1,5 +1,5 @@
 # Access link below
-  https://groovi-m4lmjc35n-medhanshverma.vercel.app/
+  https://groovi-theta.vercel.app/
 
 # Getting Started with Create React App and Redux
 
