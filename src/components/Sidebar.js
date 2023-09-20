@@ -15,6 +15,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import AddIcon from '@mui/icons-material/Add';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 
 function Sidebar() {
@@ -24,10 +26,10 @@ function Sidebar() {
     <SidebarContainer>
         <SidebarHeader>
             <SidebarInfo>
-                <h2>GROOVI HQ</h2>
+                <h2>Groovi</h2>
                 <h3>
                     <FiberManualRecordIcon />
-                    Groovi
+                    {firebase.auth().currentUser?.displayName}
                 </h3>
             </SidebarInfo>
             <CreateIcon />

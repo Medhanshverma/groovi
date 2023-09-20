@@ -4,6 +4,8 @@ import { Avatar } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SearchIcon from '@mui/icons-material/Search';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 function Header() {
   return (
@@ -11,7 +13,9 @@ function Header() {
       
       <HeaderLeft>
         <HeaderAvatar
-          // Add Onlick
+          alt={firebase.auth().currentUser?.displayName}
+          src={firebase.auth().currentUser?.photoURL}
+          onClick={() => firebase.auth().signOut()}
         />
         <AccessTimeIcon />
       </HeaderLeft>
